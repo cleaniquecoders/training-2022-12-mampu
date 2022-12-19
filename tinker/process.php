@@ -15,7 +15,7 @@ $options = [
         'port' => 3306,
         'jdbc_driver' => 'mysql',
         // 'jdbc_dir' => '/Users/nasrulhazim/Libraries/mysql-connector-j-8.0.31'
-    ]
+    ],
 ];
 
 $jasper = new PHPJasper;
