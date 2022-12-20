@@ -1,6 +1,9 @@
 <?php
 
+use App\Exports\ExportUser;
+use App\Exports\MultipleSheets;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/export/users', function () {
+    return Excel::download(new ExportUser, 'users.xlsx');
+});
+
+Route::get('/export/multiple-sheets', function () {
+    return (new MultipleSheets)->download('multiplesheets.xlsx');
+});
+
+// Route::get('/export/excel/{type}', function ($type) {
+//     // return Excel::download(new ExportUser, 'users.xlsx');
+// });
