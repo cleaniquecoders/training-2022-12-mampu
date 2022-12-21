@@ -1,4 +1,16 @@
 <x-app-layout>
+
+    @push('scripts')
+    @php
+        $url = route('api.hello');
+    @endphp
+        <script>
+            axios.get('{{ $url }}')
+                .then(function (response) {
+                    console.log(response);
+                })
+        </script>
+    @endpush
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
